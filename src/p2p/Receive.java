@@ -7,15 +7,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Entrada implements Runnable{
+public class Receive implements Runnable{
 
 	private Socket cliente;
 	
-	public Entrada(Socket client){
+	public Receive(Socket client){
 		this.cliente = client;
 	}
 	
-	@Override
 	public void run() {
 		
 		try {
@@ -24,7 +23,7 @@ public class Entrada implements Runnable{
 				BufferedReader le = new BufferedReader(entrada);
 				String resposta = le.readLine();
 				if(resposta != null){
-					System.out.println("Pessoa: " + resposta);
+					System.out.println("User: " + resposta);
 				}
 			}
 		} catch (IOException e) {
